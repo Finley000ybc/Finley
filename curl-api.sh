@@ -10,8 +10,14 @@ AKS_CLUSTER_NAME=$1
 ACTION=$2
 NAMESPACE=$3
 
+# Rremove suffix "aks-"
+ALL_AKS_CLUSTER_NAME=${AKS_CLUSTER_NAME}
+SUFFIX="aks-"
+SUFFIX_NAME="${AKS_CLUSTER_NAME#$SUFFIX}"
+
+
 # Build URL
-URL="https://${AKS_CLUSTER_NAME}-api.ap.test.com/int/rcs-test/${ACTION}"
+URL="https://${SUFFIX_NAME}-api.ap.test.com/int/rcs-test/${ACTION}"
 
 echo "The Builded URL is: $URL"
 
